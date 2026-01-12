@@ -166,8 +166,26 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: none; /* UPDATED */
+      background: linear-gradient(
+        90deg,
+        rgba(52, 37, 107, 0.88) 0%,
+        rgba(52, 37, 107, 0.55) 35%,
+        rgba(52, 37, 107, 0.18) 55%,
+        rgba(52, 37, 107, 0.00) 75%
+      );
     }
+
+    /* UPDATED ONLY: flip Slide 2 gradient direction */
+    .hero-slide.flip-slide-2::before{
+      background: linear-gradient(
+        270deg,
+        rgba(52, 37, 107, 0.88) 0%,
+        rgba(52, 37, 107, 0.55) 35%,
+        rgba(52, 37, 107, 0.18) 55%,
+        rgba(52, 37, 107, 0.00) 75%
+      );
+    }
+
     .hero-content {
       position: relative;
       width: 100%;
@@ -384,12 +402,12 @@
     }
 
     /* Logo Carousel */
-    .logo-carousel { padding: 4rem 0; background: #34256b; overflow: hidden; }
+    .logo-carousel { padding: 4rem 0; background: var(--light-gray); overflow: hidden; }
     .logo-carousel h3 { 
       text-align: center; 
       font-size: 3rem; 
       margin-bottom: 3rem; 
-      color: #ffffff; /* UPDATED */
+      color: var(--primary-purple); 
     }
     .logo-track { display: flex; animation: scroll 40s linear infinite; }
     .logo-slide { display: flex; gap: 4rem; padding: 0 2rem; }
@@ -533,7 +551,7 @@
       align-items: start;
     }
     .testimonial-card {
-      background: #f59bb8;
+      background: var(--white);
       padding: 2.5rem;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -542,9 +560,9 @@
       border-left: 5px solid var(--accent-pink);
     }
     .testimonial-card:hover { transform: translateX(10px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15); }
-    .testimonial-text { font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.8; color: #000000; }
-    .testimonial-author { font-weight: 700; color: #000000; margin-bottom: 0.3rem; }
-    .testimonial-position { color: #000000; font-size: 0.95rem; }
+    .testimonial-text { font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.8; color: #333; }
+    .testimonial-author { font-weight: 700; color: var(--primary-purple); margin-bottom: 0.3rem; }
+    .testimonial-position { color: #666; font-size: 0.95rem; }
 
     .video-grid-container { position: relative; height: 700px; }
     .floating-video {
@@ -782,7 +800,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(13).png') center/cover no-repeat;
+      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Closing%20Section.png') center/cover no-repeat;
       opacity: 1;
       z-index: 0;
     }
@@ -992,21 +1010,8 @@
   </nav>
 
   <!-- Hero Slider -->
- 
-    
   <div class="hero-slider">
-    <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(9).png');">
-      <div class="hero-content">
-        <h1>Put more time<br>on your side</h1>
-        <p>Offshore accounting and business support specialists for accountants who love freedom to do their best work.</p>
-        <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a call</a>
-          <a href="#how-it-works" class="cta-button cta-button-secondary">How it works</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(12).png');">
+    <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%202.png');">
       <div class="hero-content">
         <h1>Do great work, not more work</h1>
         <p>Build your business' dream team with skilled offshore professionals</p>
@@ -1017,8 +1022,9 @@
       </div>
     </div>
 
-    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(10).png');">
-      <div class="hero-content">
+    <!-- UPDATED ONLY: Slide 2 background flipped sideways + gradient moved to the right -->
+    <div class="hero-slide flip-slide-2" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%203.png'); transform: scaleX(-1);">
+      <div class="hero-content" style="transform: scaleX(-1);">
         <h1>Offshore AI-ready talent you can trust</h1>
         <p>Elite offshore teams built for modern accounting firms.</p>
         <div class="hero-buttons">
@@ -1027,7 +1033,7 @@
       </div>
     </div>
 
-    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(11).png');">
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%201.png');">
       <div class="hero-content">
         <h1>More time for higher-value work</h1>
         <p>Focus on advisory, clients, and growth.</p>
@@ -1041,7 +1047,6 @@
       <span class="dot active" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
     </div>
   </div>
 
@@ -1203,7 +1208,7 @@
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Alliots%20NZ.png" alt="Alliots NZ"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/PKF%20New%20Zealand.png" alt="PKF New Zealand"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Rightway%20Ltd.jpg" alt="Rightway Ltd"></div>
-        <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Baker Tilly - Black.jpg" alt="Baker Tilly"></div>
+        <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Baker%20Tilly%20-%20Black.jpg" alt="Baker Tilly"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/FRANK%20ACCOUNTING%20LOGO.png" alt="Frank Accounting"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/SIDEKICK%20LOGO.png" alt="Sidekick"></div>
       </div>
