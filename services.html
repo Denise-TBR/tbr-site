@@ -154,7 +154,7 @@
     /* HERO */
     .services-hero{
       position:relative;
-      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Services/Main/TBR%20Website%20Revamp%20-%20Hero%20Section%20(15).png') center/cover no-repeat; /* UPDATED */
+      background: linear-gradient(135deg, var(--primary-purple) 0%, #4a3785 100%);
       color:var(--white);
       overflow:hidden;
       padding:5.5rem 0 4.5rem;
@@ -163,12 +163,15 @@
       content:'';
       position:absolute;
       inset:0;
-      background: none; /* UPDATED */
+      background:
+        radial-gradient( circle at 20% 20%, rgba(245,206,0,.25), transparent 40%),
+        radial-gradient( circle at 80% 35%, rgba(245,155,184,.25), transparent 45%),
+        radial-gradient( circle at 50% 110%, rgba(221,60,39,.18), transparent 45%);
       pointer-events:none;
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1fr; /* UPDATED */
+      grid-template-columns: 1.1fr .9fr;
       gap:3rem;
       align-items:center;
       position:relative;
@@ -612,7 +615,7 @@
       left:0;
       width:100%;
       height:100%;
-      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(13).png') center/cover no-repeat; /* UPDATED */
+      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Closing%20Section.png') center/cover no-repeat;
       opacity: 1;
       pointer-events:none;
       z-index: 0;
@@ -880,6 +883,10 @@
             </div>
           </div>
 
+          <div class="hero-media">
+            <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Services/Main/Services_Main_1.svg" alt="Offshore team support">
+            <div class="hero-badge"><i class="fas fa-check-circle"></i> Dedicated offshore teams</div>
+          </div>
         </div>
       </div>
     </section>
