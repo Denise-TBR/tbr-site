@@ -137,6 +137,20 @@
       border-color: var(--white);
     }
 
+    /* UPDATED ONLY: Slide 5 See how it works button colors */
+    .slide5-how{
+      background: #34256b;
+      color: #ffffff;
+      border-color: #34256b;
+    }
+    .slide5-how:hover{
+      background: #34256b;
+      color: #ffffff;
+      border-color: #34256b;
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
     /* Hero Slider */
     .hero-slider {
       position: relative;
@@ -184,6 +198,16 @@
         rgba(52, 37, 107, 0.18) 55%,
         rgba(52, 37, 107, 0.00) 75%
       );
+    }
+
+    /* UPDATED ONLY: remove gradient overlay for specified slides */
+    .hero-slide.no-gradient::before{
+      background: none;
+    }
+
+    /* UPDATED ONLY: set heading/subheading color for specified slides */
+    .hero-slide.purple-text .hero-content{
+      color: #34256b;
     }
 
     .hero-content {
@@ -402,12 +426,13 @@
     }
 
     /* Logo Carousel */
-    .logo-carousel { padding: 4rem 0; background: var(--light-gray); overflow: hidden; }
+    /* UPDATED ONLY: background color + heading color */
+    .logo-carousel { padding: 4rem 0; background: #34256b; overflow: hidden; }
     .logo-carousel h3 { 
       text-align: center; 
       font-size: 3rem; 
       margin-bottom: 3rem; 
-      color: var(--primary-purple); 
+      color: #ffffff; 
     }
     .logo-track { display: flex; animation: scroll 40s linear infinite; }
     .logo-slide { display: flex; gap: 4rem; padding: 0 2rem; }
@@ -550,6 +575,16 @@
       margin: 3rem auto 0;
       align-items: start;
     }
+    /* UPDATED ONLY: left column testimonial boxes background + text color */
+    .testimonials-grid > div:first-child .testimonial-card{
+      background: #f59bb8;
+    }
+    .testimonials-grid > div:first-child .testimonial-text,
+    .testimonials-grid > div:first-child .testimonial-author,
+    .testimonials-grid > div:first-child .testimonial-position{
+      color: #34256b;
+    }
+
     .testimonial-card {
       background: var(--white);
       padding: 2.5rem;
@@ -784,50 +819,17 @@
     .protection-logos img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
     /* Final CTA */
+    /* UPDATED ONLY: solid background color (no image overlay) */
     .final-cta {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, var(--primary-purple) 0%, #4a3785 100%);
+      background: #34256b;
       color: var(--white);
       position: relative;
       overflow: hidden;
       width: 100%;
     }
-    /* UPDATED: full-width background image across viewport */
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Closing%20Section.png') center/cover no-repeat;
-      opacity: 1;
-      z-index: 0;
-    }
-    /* UPDATED: soft gradient overlay for readability (stronger, consistent contrast) */
-    .final-cta::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background: linear-gradient(
-        90deg,
-        rgba(0,0,0,0.55) 0%,
-        rgba(0,0,0,0.40) 45%,
-        rgba(0,0,0,0.30) 70%,
-        rgba(0,0,0,0.55) 100%
-      );
-      z-index: 0;
-    }
-    @media (max-width: 768px){
-      .final-cta::after{
-        background: linear-gradient(
-          180deg,
-          rgba(0,0,0,0.60) 0%,
-          rgba(0,0,0,0.45) 50%,
-          rgba(0,0,0,0.65) 100%
-        );
-      }
-    }
+    .final-cta::before { content: none; }
+    .final-cta::after { content: none; }
 
     .final-cta-content {
       max-width: 1400px;
@@ -852,16 +854,19 @@
       font-weight: 300;
       max-width: 700px;
     }
+
+    /* UPDATED ONLY: form background white + text #34256b + keep CTA button colors */
     .talk-form{
-      background: #34256b;
-      border: 1px solid rgba(255,255,255,0.22);
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.10);
       border-radius: 20px;
       padding: 2rem;
+      color: #34256b;
     }
     .talk-form h3{
       font-size: 1.6rem;
       margin-bottom: 1.25rem;
-      color: var(--white);
+      color: #34256b;
     }
     .talk-form .form-group{ margin-bottom: 1rem; }
     .talk-form label{
@@ -869,19 +874,19 @@
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: rgba(255,255,255,0.9);
+      color: #34256b;
     }
     .talk-form input{
       width: 100%;
       padding: 0.9rem 1rem;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(255,255,255,0.10);
-      color: var(--white);
+      border: 1px solid rgba(52,37,107,0.28);
+      background: rgba(52,37,107,0.06);
+      color: #34256b;
       outline: none;
       font-family: 'Gotham Book', sans-serif;
     }
-    .talk-form input::placeholder{ color: rgba(255,255,255,0.7); }
+    .talk-form input::placeholder{ color: rgba(52,37,107,0.70); }
     .talk-form input:focus{
       border-color: rgba(245, 206, 0, 0.85);
       box-shadow: 0 0 0 4px rgba(245, 206, 0, 0.15);
@@ -1014,7 +1019,7 @@
     <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%202.png');">
       <div class="hero-content">
         <h1>Do great work, not more work</h1>
-        <p>Build your business' dream team with skilled offshore professionals</p>
+        <p>Build your business' dream team<br>with skilled offshore professionals</p>
         <div class="hero-buttons">
           <a href="#" class="cta-button">Book a free consultation</a>
           <a href="#how-it-works" class="cta-button cta-button-secondary">See how it works</a>
@@ -1035,7 +1040,53 @@
 
     <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%201.png');">
       <div class="hero-content">
-        <h1>More time for higher-value work</h1>
+        <h1>More time for<br>higher-value work</h1>
+        <p>Focus on advisory, clients, and growth.</p>
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">Book a free strategy call</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATED ONLY: Slide 4 -->
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(9).png');">
+      <div class="hero-content">
+        <h1>Put more time<br>on your side</h1>
+        <p>Offshore accounting and business support specialists for accountants who love freedom to do their best work.</p>
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">Book a call</a>
+          <a href="#how-it-works" class="cta-button cta-button-secondary">How it works</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATED ONLY: Slide 5 (no gradient + purple text) -->
+    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(16).png');">
+      <div class="hero-content">
+        <h1>Do great work,<br>not more work</h1>
+        <p>Build your business' dream team<br>with skilled offshore professionals</p>
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">Book a free consultation</a>
+          <a href="#how-it-works" class="cta-button cta-button-secondary slide5-how">See how it works</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATED ONLY: Slide 6 (no gradient + purple text) -->
+    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(17).png');">
+      <div class="hero-content">
+        <h1>Offshore AI-ready talent you can trust</h1>
+        <p>Elite offshore teams built for modern accounting firms.</p>
+        <div class="hero-buttons">
+          <a href="#" class="cta-button">Build your team</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPDATED ONLY: Slide 7 (no gradient + purple text) -->
+    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(18).png');">
+      <div class="hero-content">
+        <h1>More time for<br>higher-value work</h1>
         <p>Focus on advisory, clients, and growth.</p>
         <div class="hero-buttons">
           <a href="#" class="cta-button">Book a free strategy call</a>
@@ -1047,6 +1098,10 @@
       <span class="dot active" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
     </div>
   </div>
 
