@@ -141,11 +141,12 @@
     /* Hero Slider */
     .hero-slider {
       position: relative;
-      height: calc(100vh - 80px);
-      min-height: 600px;
+      height: auto;
+      min-height: 500px;
       overflow: hidden;
       margin-top: 80px;
       width: 100%;
+      aspect-ratio: 16 / 9;
     }
     .hero-slide {
       position: absolute;
@@ -155,13 +156,18 @@
       height: 100%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      background-size: cover;
+      background-size: 100% 100%;
       background-position: center center;
       background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       padding-left: 0;
+    }
+    @media (max-width: 768px) {
+      .hero-slider {
+        aspect-ratio: 4 / 3;
+      }
     }
     .hero-slide.active { opacity: 1; }
     .hero-slide::before {
@@ -934,7 +940,7 @@
     <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%201_updated.png');">
       <div class="hero-content">
         <h1 style="color: white;">Put more time<br>on your side</h1>
-        <p style="color: white;">Offshore accounting and business support specialists for<br>accountants who love freedom to do their best work</p>
+        <p style="color: white;">Offshore accounting and business support specialists<br>for accountants who love freedom to do their best work</p>
         <div class="hero-buttons">
           <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Book a call</a>
           <a href="#how-it-works" class="cta-button cta-button-secondary" style="background: white; color: #34256b;">How it works</a>
@@ -955,8 +961,8 @@
 
     <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%203_updated.png');">
       <div class="hero-content">
-        <h1 style="color: #34256b;">Offshore AI-ready<br>talent you can trust</h1>
-        <p style="color: #34256b;">Elite offshore teams built for modern accounting firms</p>
+        <h1 style="color: #34256b;">Offshore<br>AI-ready talent<br>you can trust</h1>
+        <p style="color: #34256b;">Elite offshore teams built for<br>modern accounting firms</p>
         <div class="hero-buttons">
           <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Build your team</a>
         </div>
@@ -977,7 +983,7 @@
       <div class="hero-content">
         <p style="font-style: italic; font-size: 1.2rem; margin-bottom: 1rem; color: white;">The Growth Calculator</p>
         <h1 style="color: white;">See your ROI from smarter staffing decisions</h1>
-        <p style="color: white;">Know your firm's full growth potential with optimised teams</p>
+        <p style="color: white;">Know your firm's full growth potential<br>with optimised teams</p>
         <div class="hero-buttons">
           <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Calculate now</a>
           <a href="#" class="cta-button cta-button-secondary" style="background: white; color: #34256b;">Book a demo</a>
@@ -1180,6 +1186,7 @@
       </div>
       <div class="stats-image">
         <video width="100%" height="500" controls style="border-radius: 20px; object-fit: cover;">
+          <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/MP4/1.12.26_compilation.final.mp4" type="video/mp4">
           <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_compilation.final.mov" type="video/quicktime">
           Your browser does not support the video tag.
         </video>
@@ -1216,18 +1223,21 @@
           <div class="video-grid-container">
             <div class="video-testimonial">
               <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/MP4/Client%20Testimonial%20Video_Jamie.mp4" type="video/mp4">
                 <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_jamie.final.mov" type="video/quicktime">
                 Your browser does not support the video tag.
               </video>
             </div>
             <div class="video-testimonial">
               <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/MP4/Client%20Testimonial%20Video_John.mp4" type="video/mp4">
                 <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_john.final.mov" type="video/quicktime">
                 Your browser does not support the video tag.
               </video>
             </div>
             <div class="video-testimonial">
               <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/MP4/1.12.26_tracy.final.mp4" type="video/mp4">
                 <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_tracy.final.mov" type="video/quicktime">
                 Your browser does not support the video tag.
               </video>
