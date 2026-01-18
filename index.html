@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,26 +138,14 @@
       border-color: var(--white);
     }
 
-    /* UPDATED ONLY: Slide 5 See how it works button colors */
-    .slide5-how{
-      background: #34256b;
-      color: #ffffff;
-      border-color: #34256b;
-    }
-    .slide5-how:hover{
-      background: #34256b;
-      color: #ffffff;
-      border-color: #34256b;
-      transform: translateY(-2px);
-      box-shadow: none;
-    }
-
     /* Hero Slider */
     .hero-slider {
       position: relative;
-      height: 100vh;
+      height: calc(100vh - 80px);
+      min-height: 600px;
       overflow: hidden;
       margin-top: 80px;
+      width: 100%;
     }
     .hero-slide {
       position: absolute;
@@ -167,10 +156,12 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
       background-size: cover;
-      background-position: center;
+      background-position: center center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      padding-left: 0;
     }
     .hero-slide.active { opacity: 1; }
     .hero-slide::before {
@@ -180,45 +171,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        rgba(52, 37, 107, 0.88) 0%,
-        rgba(52, 37, 107, 0.55) 35%,
-        rgba(52, 37, 107, 0.18) 55%,
-        rgba(52, 37, 107, 0.00) 75%
-      );
+      background: transparent;
     }
-
-    /* UPDATED ONLY: flip Slide 2 gradient direction */
-    .hero-slide.flip-slide-2::before{
-      background: linear-gradient(
-        270deg,
-        rgba(52, 37, 107, 0.88) 0%,
-        rgba(52, 37, 107, 0.55) 35%,
-        rgba(52, 37, 107, 0.18) 55%,
-        rgba(52, 37, 107, 0.00) 75%
-      );
-    }
-
-    /* UPDATED ONLY: remove gradient overlay for specified slides */
-    .hero-slide.no-gradient::before{
-      background: none;
-    }
-
-    /* UPDATED ONLY: set heading/subheading color for specified slides */
-    .hero-slide.purple-text .hero-content{
-      color: #34256b;
-    }
-
     .hero-content {
       position: relative;
       width: 100%;
       max-width: 1400px;
       margin: 0;
-      padding: 0 clamp(1.25rem, 3vw, 2rem) 0 clamp(1.25rem, 6vw, 5.5rem);
+      margin-left: clamp(2rem, 8vw, 8rem);
+      padding: 0 2rem 0 0;
       color: var(--white);
       z-index: 2;
       text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .hero-content h1 {
       font-size: 4.5rem;
@@ -426,13 +393,12 @@
     }
 
     /* Logo Carousel */
-    /* UPDATED ONLY: background color + heading color */
-    .logo-carousel { padding: 4rem 0; background: #34256b; overflow: hidden; }
+    .logo-carousel { padding: 4rem 0; background: var(--light-gray); overflow: hidden; }
     .logo-carousel h3 { 
       text-align: center; 
       font-size: 3rem; 
       margin-bottom: 3rem; 
-      color: #ffffff; 
+      color: var(--primary-purple); 
     }
     .logo-track { display: flex; animation: scroll 40s linear infinite; }
     .logo-slide { display: flex; gap: 4rem; padding: 0 2rem; }
@@ -563,7 +529,7 @@
     }
     .stat-label { font-size: 1.1rem; font-weight: 600; }
     .stats-image { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
-    .stats-image img { width: 100%; height: 500px; object-fit: cover; }
+    .stats-image img, .stats-image video { width: 100%; height: 500px; object-fit: cover; }
 
     /* Testimonials */
     .testimonials-section { padding: 6rem 2rem; background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%); }
@@ -575,78 +541,30 @@
       margin: 3rem auto 0;
       align-items: start;
     }
-    /* UPDATED ONLY: left column testimonial boxes background + text color */
-    .testimonials-grid > div:first-child .testimonial-card{
-      background: #f59bb8;
-    }
-    .testimonials-grid > div:first-child .testimonial-text,
-    .testimonials-grid > div:first-child .testimonial-author,
-    .testimonials-grid > div:first-child .testimonial-position{
-      color: #34256b;
-    }
-
     .testimonial-card {
-      background: var(--white);
+      background: #f59bb8;
       padding: 2.5rem;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
       transition: all 0.3s;
-      border-left: 5px solid var(--accent-pink);
+      border: none;
     }
     .testimonial-card:hover { transform: translateX(10px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15); }
-    .testimonial-text { font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.8; color: #333; }
-    .testimonial-author { font-weight: 700; color: var(--primary-purple); margin-bottom: 0.3rem; }
-    .testimonial-position { color: #666; font-size: 0.95rem; }
+    .testimonial-text { font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.8; color: #34256b; }
+    .testimonial-author { font-weight: 700; color: #34256b; margin-bottom: 0.3rem; }
+    .testimonial-position { color: #34256b; font-size: 0.95rem; }
 
-    .video-grid-container { position: relative; height: 700px; }
-    .floating-video {
-      position: absolute;
+    .video-grid-container { display: flex; flex-direction: column; gap: 2rem; }
+    .video-testimonial {
+      background: #f59bb8;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
-      cursor: pointer;
     }
-    .floating-video:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); z-index: 10; }
-    .floating-video img { width: 100%; height: 100%; object-fit: cover; }
-    .floating-video .play-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: var(--primary-purple);
-    }
-    .floating-video .video-name {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: white;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .floating-video:nth-child(1) { width: 350px; height: 230px; top: 0; left: 0; animation: float1 6s ease-in-out infinite; }
-    .floating-video:nth-child(2) { width: 320px; height: 210px; top: 50px; right: 0; animation: float2 7s ease-in-out infinite; }
-    .floating-video:nth-child(3) { width: 380px; height: 250px; top: 270px; left: 30px; animation: float3 8s ease-in-out infinite; }
-    .floating-video:nth-child(4) { width: 340px; height: 220px; top: 300px; right: 20px; animation: float4 6.5s ease-in-out infinite; }
-    .floating-video:nth-child(5) { width: 320px; height: 210px; top: 520px; left: 140px; animation: float5 7.5s ease-in-out infinite; }
-
-    @keyframes float1 { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
-    @keyframes float2 { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-20px) rotate(-2deg); } }
-    @keyframes float3 { 0%, 100% { transform: translateY(0) rotate(1deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
-    @keyframes float4 { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-18px) rotate(1deg); } }
-    @keyframes float5 { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+    .video-testimonial:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
+    .video-testimonial video { width: 100%; height: auto; display: block; }
 
     /* SCALE SECTION */
     .scale-section{ padding: 6rem 2rem; background: var(--white); }
@@ -816,10 +734,12 @@
       opacity: 0.7;
       transition: all 0.3s;
     }
+    .protection-logos img:last-child {
+      height: 50px;
+    }
     .protection-logos img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
     /* Final CTA */
-    /* UPDATED ONLY: solid background color (no image overlay) */
     .final-cta {
       padding: 6rem 2rem;
       background: #34256b;
@@ -828,8 +748,6 @@
       overflow: hidden;
       width: 100%;
     }
-    .final-cta::before { content: none; }
-    .final-cta::after { content: none; }
 
     .final-cta-content {
       max-width: 1400px;
@@ -854,14 +772,11 @@
       font-weight: 300;
       max-width: 700px;
     }
-
-    /* UPDATED ONLY: form background white + text #34256b + keep CTA button colors */
     .talk-form{
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.10);
+      background: white;
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 20px;
       padding: 2rem;
-      color: #34256b;
     }
     .talk-form h3{
       font-size: 1.6rem;
@@ -880,13 +795,13 @@
       width: 100%;
       padding: 0.9rem 1rem;
       border-radius: 12px;
-      border: 1px solid rgba(52,37,107,0.28);
-      background: rgba(52,37,107,0.06);
+      border: 1px solid #ccc;
+      background: white;
       color: #34256b;
       outline: none;
       font-family: 'Gotham Book', sans-serif;
     }
-    .talk-form input::placeholder{ color: rgba(52,37,107,0.70); }
+    .talk-form input::placeholder{ color: #999; }
     .talk-form input:focus{
       border-color: rgba(245, 206, 0, 0.85);
       box-shadow: 0 0 0 4px rgba(245, 206, 0, 0.15);
@@ -1016,80 +931,56 @@
 
   <!-- Hero Slider -->
   <div class="hero-slider">
-    <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%202.png');">
+    <div class="hero-slide active" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%201_updated.png');">
       <div class="hero-content">
-        <h1>Do great work, not more work</h1>
-        <p>Build your business' dream team<br>with skilled offshore professionals</p>
+        <h1 style="color: white;">Put more time<br>on your side</h1>
+        <p style="color: white;">Offshore accounting and business support specialists for<br>accountants who love freedom to do their best work</p>
         <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a free consultation</a>
-          <a href="#how-it-works" class="cta-button cta-button-secondary">See how it works</a>
+          <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Book a call</a>
+          <a href="#how-it-works" class="cta-button cta-button-secondary" style="background: white; color: #34256b;">How it works</a>
         </div>
       </div>
     </div>
 
-    <!-- UPDATED ONLY: Slide 2 background flipped sideways + gradient moved to the right -->
-    <div class="hero-slide flip-slide-2" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%203.png'); transform: scaleX(-1);">
-      <div class="hero-content" style="transform: scaleX(-1);">
-        <h1>Offshore AI-ready talent you can trust</h1>
-        <p>Elite offshore teams built for modern accounting firms.</p>
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%202_updated.png');">
+      <div class="hero-content">
+        <h1 style="color: #34256b;">Do great work,<br>not more work</h1>
+        <p style="color: #34256b;">Build your business' dream team<br>with skilled offshore professionals</p>
         <div class="hero-buttons">
-          <a href="#" class="cta-button">Build your team</a>
+          <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Book a free consultation</a>
+          <a href="#how-it-works" class="cta-button cta-button-secondary" style="background: #34256b; color: white;">See how it works</a>
         </div>
       </div>
     </div>
 
-    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/Hero%20Home%201.png');">
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%203_updated.png');">
       <div class="hero-content">
-        <h1>More time for<br>higher-value work</h1>
-        <p>Focus on advisory, clients, and growth.</p>
+        <h1 style="color: #34256b;">Offshore AI-ready<br>talent you can trust</h1>
+        <p style="color: #34256b;">Elite offshore teams built for modern accounting firms</p>
         <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a free strategy call</a>
+          <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Build your team</a>
         </div>
       </div>
     </div>
 
-    <!-- UPDATED ONLY: Slide 4 -->
-    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(9).png');">
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%204_updated.png');">
       <div class="hero-content">
-        <h1>Put more time<br>on your side</h1>
-        <p>Offshore accounting and business support specialists for accountants who love freedom to do their best work.</p>
+        <h1 style="color: #34256b;">More time for<br>higher-value work</h1>
+        <p style="color: #34256b;">Focus on advisory, clients, and growth.</p>
         <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a call</a>
-          <a href="#how-it-works" class="cta-button cta-button-secondary">How it works</a>
+          <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Book a free strategy call</a>
         </div>
       </div>
     </div>
 
-    <!-- UPDATED ONLY: Slide 5 (no gradient + purple text) -->
-    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(16).png');">
+    <div class="hero-slide" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page%20-%20Slide%205_updated.png');">
       <div class="hero-content">
-        <h1>Do great work,<br>not more work</h1>
-        <p>Build your business' dream team<br>with skilled offshore professionals</p>
+        <p style="font-style: italic; font-size: 1.2rem; margin-bottom: 1rem; color: white;">The Growth Calculator</p>
+        <h1 style="color: white;">See your ROI from smarter staffing decisions</h1>
+        <p style="color: white;">Know your firm's full growth potential with optimised teams</p>
         <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a free consultation</a>
-          <a href="#how-it-works" class="cta-button cta-button-secondary slide5-how">See how it works</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- UPDATED ONLY: Slide 6 (no gradient + purple text) -->
-    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(17).png');">
-      <div class="hero-content">
-        <h1>Offshore AI-ready talent you can trust</h1>
-        <p>Elite offshore teams built for modern accounting firms.</p>
-        <div class="hero-buttons">
-          <a href="#" class="cta-button">Build your team</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- UPDATED ONLY: Slide 7 (no gradient + purple text) -->
-    <div class="hero-slide no-gradient purple-text" style="background-image: url('https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Hero%20Section%20(try)/TBR%20Website%20Revamp%20-%20Hero%20Section%20(18).png');">
-      <div class="hero-content">
-        <h1>More time for<br>higher-value work</h1>
-        <p>Focus on advisory, clients, and growth.</p>
-        <div class="hero-buttons">
-          <a href="#" class="cta-button">Book a free strategy call</a>
+          <a href="#" class="cta-button" style="background: #f5ce00; color: #34256b;">Calculate now</a>
+          <a href="#" class="cta-button cta-button-secondary" style="background: white; color: #34256b;">Book a demo</a>
         </div>
       </div>
     </div>
@@ -1100,22 +991,20 @@
       <span class="dot" onclick="currentSlide(3)"></span>
       <span class="dot" onclick="currentSlide(4)"></span>
       <span class="dot" onclick="currentSlide(5)"></span>
-      <span class="dot" onclick="currentSlide(6)"></span>
-      <span class="dot" onclick="currentSlide(7)"></span>
     </div>
   </div>
 
   <!-- Animated Banner -->
   <div class="slide-banner">
     <div class="banner-content">
-      <div class="banner-item"><i class="fas fa-check-circle"></i> 85% employee retention rate (2025)</div>
+      <div class="banner-item"><i class="fas fa-check-circle"></i> 90% employee retention rate</div>
+      <div class="banner-item"><i class="fas fa-star"></i> 95% client retention rate</div>
       <div class="banner-item"><i class="fas fa-globe"></i> 150+ firms supported globally</div>
       <div class="banner-item"><i class="fas fa-users"></i> 500+ top-notch offshore professionals</div>
-      <div class="banner-item"><i class="fas fa-star"></i> 95% client retention rate (2025)</div>
-      <div class="banner-item"><i class="fas fa-check-circle"></i> 85% employee retention rate (2025)</div>
+      <div class="banner-item"><i class="fas fa-check-circle"></i> 90% employee retention rate</div>
+      <div class="banner-item"><i class="fas fa-star"></i> 95% client retention rate</div>
       <div class="banner-item"><i class="fas fa-globe"></i> 150+ firms supported globally</div>
       <div class="banner-item"><i class="fas fa-users"></i> 500+ top-notch offshore professionals</div>
-      <div class="banner-item"><i class="fas fa-star"></i> 95% client retention rate (2025)</div>
     </div>
   </div>
 
@@ -1227,8 +1116,8 @@
   </section>
 
   <!-- Logo Carousel -->
-  <section class="logo-carousel">
-    <h3>Trusted by over 150+ companies worldwide</h3>
+  <section class="logo-carousel" style="background: #34256b;">
+    <h3 style="color: white;">Trusted by over 150+ companies worldwide</h3>
     <div class="logo-track">
       <div class="logo-slide">
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/baumgartners.png" alt="Baumgartners"></div>
@@ -1240,7 +1129,6 @@
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Frank%20Accounting-1.png" alt="Frank Accounting"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Randall%20and%20Payne.png" alt="Randall and Payne"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Connected%20Accountants.png" alt="Connected Accountants"></div>
-        <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/duberly_vincent_associates_logo.jpg" alt="Duberly Vincent Associates"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Alliots%20NZ.png" alt="Alliots NZ"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/PKF%20New%20Zealand.png" alt="PKF New Zealand"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Rightway%20Ltd.jpg" alt="Rightway Ltd"></div>
@@ -1259,7 +1147,6 @@
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Frank%20Accounting-1.png" alt="Frank Accounting"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Randall%20and%20Payne.png" alt="Randall and Payne"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Connected%20Accountants.png" alt="Connected Accountants"></div>
-        <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/duberly_vincent_associates_logo.jpg" alt="Duberly Vincent Associates"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Alliots%20NZ.png" alt="Alliots NZ"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/PKF%20New%20Zealand.png" alt="PKF New Zealand"></div>
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/Rightway%20Ltd.jpg" alt="Rightway Ltd"></div>
@@ -1280,7 +1167,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-number" data-target="95" data-suffix="%">0</div>
-          <div class="stat-label">2025 Client retention rate</div>
+          <div class="stat-label">Client retention rate</div>
         </div>
         <div class="stat-item">
           <div class="stat-number" data-target="150" data-suffix="+">0</div>
@@ -1292,7 +1179,10 @@
         </div>
       </div>
       <div class="stats-image">
-        <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Home%20Page/Home%20Page_4.svg" alt="Team Collaboration">
+        <video width="100%" height="500" controls style="border-radius: 20px; object-fit: cover;">
+          <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_compilation.final.mov" type="video/quicktime">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>
@@ -1324,30 +1214,23 @@
         </div>
         <div>
           <div class="video-grid-container">
-            <div class="floating-video">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&q=80" alt="Client Video">
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-              <div class="video-name">Robin Holbrook - Rejuvenation Technologies</div>
+            <div class="video-testimonial">
+              <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_jamie.final.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="floating-video">
-              <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?w=400&h=300&q=80" alt="Client Video">
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-              <div class="video-name">Josh Tiu - Next Letter</div>
+            <div class="video-testimonial">
+              <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_john.final.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div class="floating-video">
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=300&q=80" alt="Client Video">
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-              <div class="video-name">Mary Osmond - Forest</div>
-            </div>
-            <div class="floating-video">
-              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&q=80" alt="Client Video">
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-              <div class="video-name">Client Testimonial</div>
-            </div>
-            <div class="floating-video">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=300&q=80" alt="Client Video">
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-              <div class="video-name">Success Story</div>
+            <div class="video-testimonial">
+              <video controls>
+                <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_tracy.final.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -1512,13 +1395,74 @@
         <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Data%20Protected%20Pics/MICROSOFT.png" alt="Microsoft">
         <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Data%20Protected%20Pics/ESET.png" alt="ESET">
         <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Data%20Protected%20Pics/Corporate%20Deck%20-%20(Make%20a%20copy)%20(1).png" alt="Security">
-        <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Data%20Protected%20Pics/PRACTICEPROTECT.png" alt="Practice Protect">
+        <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Data%20Protected%20Pics/ActivTrak.png" alt="ActivTrak">
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Insights -->
+  <section style="padding: 6rem 2rem; background: var(--light-gray);">
+    <div class="section-container">
+      <h2 class="section-title">Industry Insights</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem;">
+
+        <!-- Blog -->
+        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s;">
+          <div style="padding: 1.5rem 1.5rem 0 1.5rem;">
+            <div style="display: inline-block; background: var(--primary-purple); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem;">BLOG</div>
+          </div>
+          <div style="position: relative; overflow: hidden; padding: 0 1.5rem;">
+            <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Blogs%20thumbnail/Profit%20Today%2c%20Value%20Tomorrow%20How%20Accounting%20Firms%20Grow%20Their%20Value%20Before%20Exit_%20Growth%20Calculator%20blog.png" alt="Blog" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-purple);">From Stretched to Scalable: The Growth Calculator Every Accounting Firm Needs</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">From Stretched to Scalable: The Growth Calculator Every Accounting Firm Needs
+
+For many accounting firms, success gets measured by revenue and billable hours. But here's the catch: those numbers don't always reflect true firm growth.
+
+When partners and senior staff are tied up with admin and compliance, margins flatten and growth stalls. But when their time is freed, they can focus on higher-value advisory work—the kind of work that commands stronger yields, drives profitability, and deepens client relationships.
+
+That's where The Growth Calculator comes in.</p>
+            <a href="https://thebackroomop.com/en-us/news-and-guides/from-stretched-to-scalable-the-growth-calculator-every-accounting-firm-needs" class="view-role-btn">Read more</a>
+          </div>
+        </div>
+
+        <!-- Case Study -->
+        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s;">
+          <div style="padding: 1.5rem 1.5rem 0 1.5rem;">
+            <div style="display: inline-block; background: var(--accent-yellow); color: var(--primary-purple); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem;">CASE STUDY</div>
+          </div>
+          <div style="position: relative; overflow: hidden; padding: 0 1.5rem;">
+            <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Case%20Study%20thumbnails/Windes%20Case%20Study%20Thumbnail.png" alt="Case Study" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-purple);">The path to offshoring made easy with the right guide</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">Windes Accounting, a growing California based firm, took a bold step to faster growth in 2023 by joining up with The Back Room to help build their offshore team in the Philippines. They've made a significant shift in how they manage their operations and embraced the benefits of offshoring</p>
+            <a href="https://thebackroomop.com/en-us/customer-story/windes" class="view-role-btn">Read more</a>
+          </div>
+        </div>
+
+        <!-- Podcast -->
+        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); transition: all 0.3s;">
+          <div style="padding: 1.5rem 1.5rem 0 1.5rem;">
+            <div style="display: inline-block; background: var(--accent-red); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 1rem;">PODCAST</div>
+          </div>
+          <div style="position: relative; overflow: hidden; padding: 0 1.5rem;">
+            <img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Podcast%20thumbnail/Podcast%20Thumbail.png" alt="Podcast" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-purple);">Offshoring Real Talk from Wayne & Bruce</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">Join us for a chat with Bruce as he shares his journey from starting his own accounting firm to merging with Aprio, scaling remote teams in the Philippines, and embracing the power of AI in the industry.</p>
+            <a href="https://www.youtube.com/watch?v=y2VfCF_tRyw" class="view-role-btn">Watch on YouTube</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Final CTA -->
-  <section class="final-cta">
+  <section class="final-cta" style="background: #34256b;">
     <div class="final-cta-content">
       <div class="final-cta-grid">
         <div>
