@@ -141,12 +141,15 @@
     /* Hero Slider */
     .hero-slider {
       position: relative;
-      height: auto;
-      min-height: 500px;
-      overflow: hidden;
+      width: 100vw;
+      height: calc(100vw * 944 / 1920);
+      max-width: 100%;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
       margin-top: 80px;
-      width: 100%;
-      aspect-ratio: 16 / 9;
+      margin-bottom: 0;
+      overflow: hidden;
+      display: block;
     }
     .hero-slide {
       position: absolute;
@@ -156,7 +159,7 @@
       height: 100%;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-      background-size: 100% 100%;
+      background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       display: flex;
@@ -166,7 +169,7 @@
     }
     @media (max-width: 768px) {
       .hero-slider {
-        aspect-ratio: 4 / 3;
+        height: calc(100vw * 944 / 1920);
       }
     }
     .hero-slide.active { opacity: 1; }
@@ -535,7 +538,7 @@
     }
     .stat-label { font-size: 1.1rem; font-weight: 600; }
     .stats-image { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
-    .stats-image img, .stats-image video { width: 100%; height: 500px; object-fit: cover; }
+    .stats-image img, .stats-image video { width: 100%; height: auto; object-fit: contain; }
 
     /* Testimonials */
     .testimonials-section { padding: 6rem 2rem; background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%); }
@@ -1123,7 +1126,7 @@
 
   <!-- Logo Carousel -->
   <section class="logo-carousel" style="background: #34256b;">
-    <h3 style="color: white;">Trusted by over 150+ companies worldwide</h3>
+    <h3 style="color: white;">Trusted by over 150 companies worldwide</h3>
     <div class="logo-track">
       <div class="logo-slide">
         <div class="logo-item"><img src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/Client%20logos/baumgartners.png" alt="Baumgartners"></div>
@@ -1173,7 +1176,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-number" data-target="95" data-suffix="%">0</div>
-          <div class="stat-label">Client retention rate</div>
+          <div class="stat-label">2025 Client retention rate</div>
         </div>
         <div class="stat-item">
           <div class="stat-number" data-target="150" data-suffix="+">0</div>
@@ -1185,7 +1188,7 @@
         </div>
       </div>
       <div class="stats-image">
-        <video width="100%" height="500" controls style="border-radius: 20px; object-fit: cover;">
+        <video width="100%" controls style="border-radius: 20px;">
           <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/MP4/1.12.26_compilation.final.mp4" type="video/mp4">
           <source src="https://8477168.fs1.hubspotusercontent-na1.net/hubfs/8477168/TBR%20Website%20Revamp/Client%20Testimonial/1.12.26_compilation.final.mov" type="video/quicktime">
           Your browser does not support the video tag.
